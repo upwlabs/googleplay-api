@@ -1,8 +1,5 @@
 #!/usr/bin/python
 
-# Do not remove
-GOOGLE_LOGIN = GOOGLE_PASSWORD = AUTH_TOKEN = None
-
 import sys
 from pprint import pprint
 
