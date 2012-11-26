@@ -24,8 +24,12 @@ else:
     filename = packagename + ".apk"
 
 # Connect
-api = GooglePlayAPI(ANDROID_ID)
-api.login(GOOGLE_LOGIN, GOOGLE_PASSWORD, AUTH_TOKEN)
+api = GooglePlayAPI(androidId=ANDROID_ID, email=GOOGLE_LOGIN, password=GOOGLE_PASSWORD, authSubToken=AUTH_TOKEN)
+
+# login if necessary
+if not AUTH_TOKEN:
+    # api.login(GOOGLE_LOGIN, GOOGLE_PASSWORD, AUTH_TOKEN)
+    api.login()
 
 # Get the version code and the offer type from the app details
 m = api.details(packagename)

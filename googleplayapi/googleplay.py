@@ -46,12 +46,33 @@ class GooglePlayAPI(object):
     authSubToken = None
     context = None
 
-    def __init__(self, androidId=None, debug=False): # you must use a device-associated androidId value
+    def __init__(self, androidId=None, authSubToken=None, email=None, password=None, debug=False):
+        """Google Play API
+
+        authSubToken - pass in this value instead of calling login() multiple times
+
+        email - Google Play username
+
+        password - Google Play Password
+
+        androidId - device id associated with the same Google Play account
+
+        debug - increase verbosity and clutter up the screen
+        """
         self.preFetch = {}
+
+        self.debug = debug
+
+        # store immediately to avoid more params to login() later
+        self.email = email
+        self.password = password
+        self.authSubToken = authSubToken
+
+        # try to grab androidId from config as a last resort
         if androidId == None:
+            import googleplayapi.config as config
             androidId = config.ANDROID_ID
         self.androidId = androidId
-        self.debug = debug
 
     def toDict(self, protoObj):
         """Converts the (protobuf) result from an API call into a dict, for
@@ -92,14 +113,20 @@ class GooglePlayAPI(object):
     def setAuthSubToken(self, authSubToken):
         self.authSubToken = authSubToken
 
-        # put your auth token in config.py to avoid multiple login requests
         if self.debug:
             print "authSubToken: " + authSubToken
 
     def login(self, email=None, password=None, authSubToken=None):
-        """Login to your Google Account. You must provide either:
+        """Login to your Google account. You must provide either:
         - an email and password
         - a valid Google authSubToken"""
+        if email == None:
+            email = self.email
+        if password == None:
+            password = self.password
+        # Don't load authSubToken from self because maybe we're logging in
+        # again.
+
         if (authSubToken is not None):
             self.setAuthSubToken(authSubToken)
         else:
