@@ -141,9 +141,9 @@ class GooglePlayAPI(object):
                                 "androidId": self.androidId,
                                 "app": "com.android.vending",
                                 #"client_sig": self.client_sig,
-                                "device_country": "fr",
-                                "operatorCountry": "fr",
-                                "lang": "fr",
+                                "device_country": "us",
+                                "operatorCountry": "us",
+                                "lang": "en",
                                 "sdk_version": "16"}
             headers = {
                 "Accept-Encoding": "",
