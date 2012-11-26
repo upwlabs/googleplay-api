@@ -1,4 +1,4 @@
-from config import SEPARATOR
+from googleplayapi.config import SEPARATOR
 
 def sizeof_fmt(num):
     for x in ['bytes','KB','MB','GB','TB']:

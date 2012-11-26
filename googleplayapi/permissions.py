@@ -8,8 +8,8 @@ import urlparse
 from pprint import pprint
 from google.protobuf import text_format
 
-from config import *
-from googleplay import GooglePlayAPI
+from googleplayapi.config import *
+from googleplayapi.googleplay import GooglePlayAPI
 
 if (len(sys.argv) < 2):
     print "Usage: %s packagename1 [packagename2 [...]]" % sys.argv[0]

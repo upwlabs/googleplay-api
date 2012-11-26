@@ -6,9 +6,9 @@ GOOGLE_LOGIN = GOOGLE_PASSWORD = AUTH_TOKEN = None
 import sys
 from pprint import pprint
 
-from config import *
-from googleplay import GooglePlayAPI
-from helpers import sizeof_fmt, print_header_line, print_result_line
+from googleplayapi.config import *
+from googleplayapi.googleplay import GooglePlayAPI
+from googleplayapi.helpers import sizeof_fmt, print_header_line, print_result_line
 
 if (len(sys.argv) < 2):
     print "Usage: %s category [subcategory] [nb_results] [offset]" % sys.argv[0]

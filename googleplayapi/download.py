@@ -6,9 +6,9 @@ GOOGLE_LOGIN = GOOGLE_PASSWORD = AUTH_TOKEN = None
 import sys
 from pprint import pprint
 
-from config import *
-from googleplay import GooglePlayAPI
-from helpers import sizeof_fmt
+from googleplayapi.config import *
+from googleplayapi.googleplay import GooglePlayAPI
+from googleplayapi.helpers import sizeof_fmt
 
 if (len(sys.argv) < 2):
     print "Usage: %s packagename [filename]"
