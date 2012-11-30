@@ -12,7 +12,6 @@ from google.protobuf import text_format
 from google.protobuf.message import Message, DecodeError
 
 import googleplayapi.googleplay_pb2 as googleplay_pb2
-import googleplayapi.config as config
 
 class LoginError(Exception):
     def __init__(self, value):
