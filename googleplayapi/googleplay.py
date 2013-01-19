@@ -115,7 +115,7 @@ class GooglePlayAPI(object):
         if self.debug:
             print "authSubToken: " + authSubToken
 
-    def login(self, email=None, password=None, authSubToken=None):
+    def login(self, email=None, password=None, authSubToken=None, service=None):
         """Login to your Google account. You must provide either:
         - an email and password
         - a valid Google authSubToken"""
@@ -126,6 +126,9 @@ class GooglePlayAPI(object):
         # Don't load authSubToken from self because maybe we're logging in
         # again.
 
+        if not service:
+            service = self.SERVICE
+
         if (authSubToken is not None):
             self.setAuthSubToken(authSubToken)
         else:
@@ -133,7 +136,7 @@ class GooglePlayAPI(object):
                 raise Exception("You should provide at least authSubToken or (email and password)")
             params = {"Email": email,
                                 "Passwd": password,
-                                "service": self.SERVICE,
+                                "service": service,
                                 "accountType": self.ACCOUNT_TYPE_HOSTED_OR_GOOGLE,
                                 "has_permission": "1",
                                 "source": "android",
