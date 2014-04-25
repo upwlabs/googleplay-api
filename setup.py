@@ -7,7 +7,7 @@ setup(name="googleplayapi",
       license="BSD",
       description="Google Play API for Android",
       long_description=open("README.md").read(),
-      url="https://github.com/kanzure/googleplay-api",
+      url="https://github.com/upwlabs/googleplay-api",
       classifiers=[
               "Environment :: Console",
               "Development Status :: 3 - Alpha",
