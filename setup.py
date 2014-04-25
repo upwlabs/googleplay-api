@@ -1,12 +1,23 @@
 from setuptools import setup, find_packages
 
-version = "1.0.0"
-
 setup(name="googleplayapi",
-      version=version,
+      version="1.0.0",
       author="Emilien Girault",
       author_email="emilien.girault@gmail.com",
       license="BSD",
       description="Google Play API for Android",
       url="https://github.com/kanzure/googleplay-api",
+      classifiers=[
+              "Environment :: Console",
+              "Development Status :: 3 - Alpha",
+              "Programming Language :: Python",
+              "Programming Language :: Python :: 2.7",
+              "Intended Audience :: Developers",
+              "License :: OSI Approved :: BSD License",
+              "Natural Language :: English",
+              "Operating System :: OS Independent",
+              "Environment :: Other Environment",
+              "Topic :: Utilities",
+          ],
+      install_requires=['protobuf'],
       packages=find_packages())
